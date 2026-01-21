@@ -105,7 +105,7 @@ mod tests {
         loop {
             rx.changed().await.unwrap();
             // Differentiate between when the message was read vs sent. `sent_at` is when the
-            // message is sent by the receiver, `read_at` is `rx.changed()` stops blocking and
+            // message is sent by the receiver, `read_at` is when `rx.changed()` stops blocking and
             // reads the value.
             let read_at = start.elapsed().as_millis();
             let (msg, sent_at) = rx.borrow().clone();
